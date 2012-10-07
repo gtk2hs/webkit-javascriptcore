@@ -1,0 +1,31 @@
+Name:		webkit-javascriptcore
+Version:	0.0.0.999
+Synopsis:       JavaScriptCore FFI from webkitgtk
+Description: 	FFI for JavaScriptCore module from webkitgtk 
+License: 	BSD3
+License-file:	LICENSE
+Author:		Ian-Woo Kim
+Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
+Build-Type: 	Simple
+Cabal-Version:  >= 1.8
+data-files:      
+Extra-source-files: cbits, include
+Library
+  hs-source-dirs: src
+  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind -fno-warn-orphans
+  ghc-prof-options: -caf-all -auto-all
+  Build-Tools: c2hs 
+  C-sources: 
+-- cbits/foobar.c cbits/foobaz.c
+  Extra-libraries: webkitgtk-1.0
+  Include-dirs: include /usr/include/webkitgtk-1.0
+  Includes: 
+-- foobar.h, foobaz.h
+  Install-includes:
+-- foobar.h, foobaz.h
+  Build-Depends:   base>4
+  Other-Modules:   
+  exposed-modules:
+                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase
+                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSContextRef 
+                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
