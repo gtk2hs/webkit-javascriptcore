@@ -38,6 +38,8 @@ data OpaqueJSValue
 {#pointer JSObjectRef as JSObjectRef -> OpaqueJSValue #}
 
 {#pointer *JSValueRef as JSValueRefRef -> JSValueRef #}
+{#pointer *JSStringRef as JSStringRefRef -> JSStringRef #}
+
 
 {#fun JSEvaluateScript as ^ {id `JSContextRef', id `JSStringRef', id `JSObjectRef', id `JSStringRef', fromIntegral `Int', id `JSValueRefRef'} -> `JSValueRef' id #}
  
