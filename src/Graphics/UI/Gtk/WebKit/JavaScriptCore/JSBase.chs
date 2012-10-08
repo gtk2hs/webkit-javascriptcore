@@ -13,6 +13,9 @@ getBool :: CInt -> Bool
 getBool n | n == 0 = False 
           | otherwise = True 
 
+setBool :: Bool -> CInt 
+setBool True = 1
+setBool False = 0
 
 data OpaqueJSContextGroup 
 {#pointer JSContextGroupRef as JSContextGroupRef -> OpaqueJSContextGroup #} 
