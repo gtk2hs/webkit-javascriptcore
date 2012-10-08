@@ -6,26 +6,44 @@ License: 	BSD3
 License-file:	LICENSE
 Author:		Ian-Woo Kim
 Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
-Build-Type: 	Simple
+Build-Type:     Custom
 Cabal-Version:  >= 1.8
-data-files:      
-Extra-source-files: cbits, include
+Extra-Source-Files: hsjscore.h
+                    SetupWrapper.hs SetupMain.hs Gtk2HsSetup.hs
+                    marshal.list
+		    hierarchy.list
+
+x-Types-File:       src/Graphics/UI/Gtk/WebKit/JavaScriptCore/Types.chs
+x-Types-Tag:        javascript2
+x-Types-ModName:    Graphics.UI.Gtk.WebKit.JavaScriptCore.Types
+x-Types-Forward:    *Graphics.UI.GtkInternals
+x-Types-Destructor: objectUnrefFromMainloop
+x-Types-Hierarchy:  hierarchy.list
+
 Library
-  hs-source-dirs: src
-  ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind -fno-warn-orphans
-  ghc-prof-options: -caf-all -auto-all
-  Build-Tools: c2hs 
-  C-sources: 
--- cbits/foobar.c cbits/foobaz.c
-  Extra-libraries: webkitgtk-1.0
-  Include-dirs: include /usr/include/webkitgtk-1.0
-  Includes: 
--- foobar.h, foobaz.h
-  Install-includes:
--- foobar.h, foobaz.h
-  Build-Depends:   base>4
-  Other-Modules:   
-  exposed-modules:
+        hs-source-dirs: src
+        build-depends:  base >= 4 && < 5, mtl
+						
+        build-tools:    gtk2hsC2hs >= 0.13.5,
+                        gtk2hsHookGenerator, gtk2hsTypeGen
+						
+        exposed-modules:
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase
-                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSContextRef 
-                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
+--                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSContextRef 
+--                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
+        other-modules:
+ --                   Graphics.UI.Gtk.SourceView.Types		  
+ --                 Graphics.UI.Gtk.SourceView.Signals
+		  
+        extensions:     ForeignFunctionInterface
+
+        x-Signals-File:  src/Graphics/UI/Gtk/WebKit/JavaScriptCore/Signals.chs
+        x-Signals-Modname: src/Graphics.UI.Gtk.WebKit.JavaScriptCore.Signals
+        x-Signals-Types: marshal.list
+		
+        include-dirs: .
+                      /usr/include/webkitgtk-1.0
+        x-c2hs-Header:  hsjscore.h
+ --        pkgconfig-depends: gtksourceview-3.0 >= 3.0.0
+
+        x-Types-Hierarchy:  hierarchy.list

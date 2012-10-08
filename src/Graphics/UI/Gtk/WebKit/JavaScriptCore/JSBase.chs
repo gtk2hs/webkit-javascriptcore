@@ -9,15 +9,10 @@ import Foreign.C.Types
 #include <JavaScriptCore/JSBase.h>
 #include <JavaScriptCore/JSContextRef.h>
 
-typedef int bool  
+getBool :: CInt -> Bool 
+getBool n | n == 0 = False 
+          | otherwise = True 
 
-type BoolC99 = CInt -- {#type _Bool#} 
-
-getBool :: BoolC99 -> Bool
-getBool x = let y =fromIntegral x 
-                z | y == 0 = False
-                z | otherwise = True
-            in z 
 
 data OpaqueJSContextGroup 
 {#pointer JSContextGroupRef as JSContextGroupRef -> OpaqueJSContextGroup #} 
@@ -42,11 +37,12 @@ data OpaqueJSValue
 {#pointer JSValueRef as JSValueRef -> OpaqueJSValue #}
 {#pointer JSObjectRef as JSObjectRef -> OpaqueJSValue #}
 
-{#fun JSEvaluateScript as ^ {id `JSContextRef', id `JSStringRef', id `JSObjectRef', id `JSStringRef', fromIntegral `Int', id `Ptr JSValueRef'} -> `JSValueRef' id #}
- 
-{#fun JSCheckScriptSyntax as ^ {id `JSContextRef', id `JSStringRef', id `JSStringRef', fromIntegral `Int', id `Ptr JSValueRef'} -> `Bool' getBool #}
 
-{#fun JSGarbageCollect as ^ {id `JSContextRef'} -> `()' #}
+{#fun JSEvaluateScript as ^ {id `JSContextRef', id `JSStringRef', id `JSObjectRef', id `JSStringRef', fromIntegral `Int', id `JSValueRef'} -> `JSValueRef' id #}
+ 
+{#fun JSCheckScriptSyntax as ^ {id `JSContextRef', id `JSStringRef', id `JSStringRef', fromIntegral `Int', id `JSValueRef'} -> `Bool' getBool #}
+
+-- {#fun JSGarbageCollect as ^ {id `JSContextRef'} -> `()' #}
 
 -- {#fun JSContextGroupCreate as ^ {} -> `JSContextGroupRef' id #}
 

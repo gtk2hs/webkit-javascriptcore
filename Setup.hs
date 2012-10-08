@@ -1,13 +1,10 @@
-import Distribution.Simpe 
-import Distribution.Simple.Setup
-import Distribution.Simple.Utils (rawSystemExit)
+-- Standard setup file for a Gtk2Hs module.
+--
+-- See also:
+--  * SetupMain.hs    : the real Setup script for this package
+--  * Gtk2HsSetup.hs  : Gtk2Hs-specific boilerplate
+--  * SetupWrapper.hs : wrapper for compat with various ghc/cabal versions
 
-main = defaultMainWithHooks simpleUserHooks 
-         { preBuild \a b -> makeLib a b >> preBuild simpleUserHooks a b }
-     
-makeLib :: Args -> BuildFlags -> IO () 
-makeLib _ flags = 
-  rawSystemExit (fromFlag $ buildVerbosity flags) "env"
-    [ "CFLAGS=-D_LIB", "make", "--directory=abc", "libabc.a"]
-    
- 
+import SetupWrapper ( setupWrapper )
+
+main = setupWrapper "SetupMain.hs"
