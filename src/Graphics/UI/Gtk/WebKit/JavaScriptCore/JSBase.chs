@@ -37,16 +37,14 @@ data OpaqueJSValue
 {#pointer JSValueRef as JSValueRef -> OpaqueJSValue #}
 {#pointer JSObjectRef as JSObjectRef -> OpaqueJSValue #}
 
+{#pointer *JSValueRef as JSValueRefRef -> JSValueRef #}
 
-{#fun JSEvaluateScript as ^ {id `JSContextRef', id `JSStringRef', id `JSObjectRef', id `JSStringRef', fromIntegral `Int', id `JSValueRef'} -> `JSValueRef' id #}
+{#fun JSEvaluateScript as ^ {id `JSContextRef', id `JSStringRef', id `JSObjectRef', id `JSStringRef', fromIntegral `Int', id `JSValueRefRef'} -> `JSValueRef' id #}
  
-{#fun JSCheckScriptSyntax as ^ {id `JSContextRef', id `JSStringRef', id `JSStringRef', fromIntegral `Int', id `JSValueRef'} -> `Bool' getBool #}
+{#fun JSCheckScriptSyntax as ^ {id `JSContextRef', id `JSStringRef', id `JSStringRef', fromIntegral `Int', id `JSValueRefRef'} -> `Bool' getBool #}
 
--- {#fun JSGarbageCollect as ^ {id `JSContextRef'} -> `()' #}
+{#fun JSGarbageCollect as ^ {id `JSContextRef'} -> `()' #}
 
--- {#fun JSContextGroupCreate as ^ {} -> `JSContextGroupRef' id #}
-
--- {#fun JSGlobalContextRelease as ^ { id `JSGlobalContextRef' } -> `()' #}
 
 
 

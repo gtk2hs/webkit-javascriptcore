@@ -9,6 +9,7 @@ Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
 Build-Type:     Custom
 Cabal-Version:  >= 1.8
 Extra-Source-Files: hsjscore.h
+                    include/*.chs.h
                     SetupWrapper.hs SetupMain.hs Gtk2HsSetup.hs
                     marshal.list
 		    hierarchy.list
@@ -29,11 +30,10 @@ Library
 						
         exposed-modules:
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase
---                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSContextRef 
---                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
+                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSContextRef 
+                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
         other-modules:
- --                   Graphics.UI.Gtk.SourceView.Types		  
- --                 Graphics.UI.Gtk.SourceView.Signals
+
 		  
         extensions:     ForeignFunctionInterface
 
@@ -42,6 +42,7 @@ Library
         x-Signals-Types: marshal.list
 		
         include-dirs: .
+                      include 
                       /usr/include/webkitgtk-1.0
         x-c2hs-Header:  hsjscore.h
  --        pkgconfig-depends: gtksourceview-3.0 >= 3.0.0
