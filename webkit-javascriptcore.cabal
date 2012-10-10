@@ -23,7 +23,12 @@ x-Types-Hierarchy:  hierarchy.list
 
 Library
         hs-source-dirs: src
-        build-depends:  base >= 4 && < 5, mtl
+        build-depends:  base >= 4 && < 5, 
+                        webkit >= 0.12.5, 
+                        glib >= 0.12.1 && < 0.13
+
+                         -- , mtl
+ 
 						
         build-tools:    gtk2hsC2hs >= 0.13.5,
                         gtk2hsHookGenerator, gtk2hsTypeGen
@@ -34,6 +39,8 @@ Library
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSStringRef
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSValueRef 
+                   -- 
+                   -- Graphics.UI.Gtk.WebKit.JavaScriptCore.WebFrame
         other-modules:
 
 		  
@@ -45,8 +52,10 @@ Library
 		
         include-dirs: .
                       include 
-                      /usr/include/webkitgtk-1.0
+                      -- /usr/include/webkitgtk-1.0
+                      -- /usr/include/glib-2.0
+                      -- /usr/lib/x86_64-linux-gnu/glib-2.0/include
         x-c2hs-Header:  hsjscore.h
- --        pkgconfig-depends: gtksourceview-3.0 >= 3.0.0
+        pkgconfig-depends: webkit-1.0 >= 1.1.15
 
         x-Types-Hierarchy:  hierarchy.list
