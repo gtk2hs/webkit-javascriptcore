@@ -15,7 +15,7 @@ Extra-Source-Files: hsjscore.h
 		    hierarchy.list
 
 x-Types-File:       src/Graphics/UI/Gtk/WebKit/JavaScriptCore/Types.chs
-x-Types-Tag:        javascript2
+x-Types-Tag:        webkit webkit-dom
 x-Types-ModName:    Graphics.UI.Gtk.WebKit.JavaScriptCore.Types
 x-Types-Forward:    *Graphics.UI.GtkInternals
 x-Types-Destructor: objectUnrefFromMainloop
@@ -24,8 +24,9 @@ x-Types-Hierarchy:  hierarchy.list
 Library
         hs-source-dirs: src
         build-depends:  base >= 4 && < 5, 
-                        webkit >= 0.12.5, 
-                        glib >= 0.12.1 && < 0.13
+                        glib, 
+                        gtk,  
+                        webkit >= 0.12.5 
 
                          -- , mtl
  
@@ -39,8 +40,9 @@ Library
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSStringRef
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSValueRef 
-                   -- 
-                   -- Graphics.UI.Gtk.WebKit.JavaScriptCore.WebFrame
+                   --
+                   -- Graphics.UI.Gtk.WebKit.JavaScriptCore.Types  
+                   Graphics.UI.Gtk.WebKit.JavaScriptCore.WebFrame
         other-modules:
 
 		  
@@ -49,6 +51,7 @@ Library
         x-Signals-File:  src/Graphics/UI/Gtk/WebKit/JavaScriptCore/Signals.chs
         x-Signals-Modname: src/Graphics.UI.Gtk.WebKit.JavaScriptCore.Signals
         x-Signals-Types: marshal.list
+        x-Signals-Import: Graphics.UI.GtkInternals
 		
         include-dirs: .
                       include 

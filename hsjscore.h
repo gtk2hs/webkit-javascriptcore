@@ -23,5 +23,6 @@
 #define _Bool int
 
 /* include webkit headers*/
-// #include <webkit/webkit.h>
+#include <webkit/webkit.h>
+#include <webkit/webkitdom.h>
 #endif
