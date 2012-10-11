@@ -13,8 +13,8 @@ import Debug.Trace
 -- | conversion from CInt to Bool 
 --   strangely, n often becomes -256 for False
 getBool :: CUChar -> Bool --  CInt -> Bool 
-getBool n | n == 1 = trace ("n=" ++ show n ) True 
-          | otherwise = trace ("n=" ++ show n) False 
+getBool n | n == 1 = True 
+          | otherwise = False 
 
 setBool :: Bool -> CUChar -- CInt 
 setBool True = 1
