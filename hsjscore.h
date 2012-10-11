@@ -20,7 +20,7 @@
 #ifndef HS_WEBKITJAVASCRIPTCORE_H
 #define HS_WEBKITJAVASCRIPTCORE_H
 /* to avoid stdbool.h error in JavaScriptCore/JSBase.h*/
-#define _Bool int
+#define _Bool unsigned char // unsigned short // previously, int
 
 /* include webkit headers*/
 #include <webkit/webkit.h>

@@ -10,7 +10,7 @@ import Foreign.C.Types
 
 #include <JavaScriptCore/JSValueRef.h>
 
-{#enum JSType {underscoreToCase} deriving (Eq) #}
+{#enum JSType {underscoreToCase} deriving (Show,Eq) #}
 
 toEnumFromIntegral :: (Enum a, Integral i) => i -> a  
 toEnumFromIntegral = toEnum . fromIntegral 

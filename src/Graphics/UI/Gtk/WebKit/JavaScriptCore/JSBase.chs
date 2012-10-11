@@ -4,16 +4,19 @@ module Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase where
 
 import Foreign.Ptr 
 import Foreign.C.Types 
+import Debug.Trace
 
 -- #include <stdbool.h>
 #include <JavaScriptCore/JSBase.h>
 #include <JavaScriptCore/JSContextRef.h>
 
-getBool :: CInt -> Bool 
-getBool n | n == 0 = False 
-          | otherwise = True 
+-- | conversion from CInt to Bool 
+--   strangely, n often becomes -256 for False
+getBool :: CUChar -> Bool --  CInt -> Bool 
+getBool n | n == 1 = trace ("n=" ++ show n ) True 
+          | otherwise = trace ("n=" ++ show n) False 
 
-setBool :: Bool -> CInt 
+setBool :: Bool -> CUChar -- CInt 
 setBool True = 1
 setBool False = 0
 
