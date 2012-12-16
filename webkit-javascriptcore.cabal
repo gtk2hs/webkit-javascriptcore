@@ -21,6 +21,10 @@ x-Types-Forward:    *Graphics.UI.GtkInternals
 x-Types-Destructor: objectUnrefFromMainloop
 x-Types-Hierarchy:  hierarchy.list
 
+flag gtk3
+    Description:  Use GTK3 rather than GTK2
+    Default: False
+
 Library
         hs-source-dirs: src
         build-depends:  base >= 4 && < 5, 
@@ -59,6 +63,8 @@ Library
                       -- /usr/include/glib-2.0
                       -- /usr/lib/x86_64-linux-gnu/glib-2.0/include
         x-c2hs-Header:  hsjscore.h
-        pkgconfig-depends: webkit-1.0 >= 1.1.15
-
+        if flag(gtk3)
+          pkgconfig-depends: webkitgtk-3.0 >=1.1.15
+        else
+          pkgconfig-depends: webkit-1.0 >=1.1.15
         x-Types-Hierarchy:  hierarchy.list
