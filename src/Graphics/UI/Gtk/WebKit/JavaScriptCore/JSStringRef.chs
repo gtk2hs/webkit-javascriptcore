@@ -14,7 +14,7 @@ import Foreign.C.Types
 type JSChar = {#type JSChar #}
 {#pointer *JSChar as JSCharRef -> JSChar #}
 
-{#fun JSStringCreateWithCharacters as ^ { id `JSCharRef', id `CULong' } -> `JSStringRef' id #}
+{#fun JSStringCreateWithCharacters as ^ { id `JSCharRef', fromIntegral `CSize' } -> `JSStringRef' id #}
 
 {#fun JSStringCreateWithUTF8CString as ^ { `String' } -> `JSStringRef' id #}
 
@@ -22,13 +22,13 @@ type JSChar = {#type JSChar #}
 
 {#fun JSStringRelease as ^ { id `JSStringRef' } -> `()' #} 
 
-{#fun JSStringGetLength as ^ { id `JSStringRef' } -> `CULong' fromIntegral #}
+{#fun JSStringGetLength as ^ { id `JSStringRef' } -> `CSize' fromIntegral #}
 
 {#fun JSStringGetCharactersPtr as ^ {id `JSStringRef' } -> `JSCharRef' id #}
 
-{#fun JSStringGetMaximumUTF8CStringSize as ^ {id `JSStringRef'} -> `CULong' id #}
+{#fun JSStringGetMaximumUTF8CStringSize as ^ {id `JSStringRef'} -> `CSize' fromIntegral #}
 
-{#fun JSStringGetUTF8CString as ^ {id `JSStringRef', `String', id `CULong'} -> `CULong' id #}
+{#fun JSStringGetUTF8CString as ^ {id `JSStringRef', `String', fromIntegral `CSize'} -> `CSize' fromIntegral #}
 
 {#fun JSStringIsEqual as ^ {id `JSStringRef', id `JSStringRef' } -> `Bool' getBool #} 
 

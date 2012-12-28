@@ -6,6 +6,7 @@ import Foreign.C.String
 import Foreign.C.Types 
 import Foreign.Ptr 
 import Foreign.Storable
+import Data.Word (Word)
 
 {# import Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase #}
 
@@ -219,13 +220,13 @@ class_set_convertToType t f = {#set JSClassDefinition -> convertToType #} t f
 
 {#fun JSObjectMakeConstructor as ^ {id `JSContextRef', id `JSClassRef', id `JSObjectCallAsConstructorCallback'} -> `JSObjectRef' id #}
 
-{#fun JSObjectMakeArray as ^ {id `JSContextRef', id `CULong', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
+{#fun JSObjectMakeArray as ^ {id `JSContextRef', fromIntegral `CSize', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
 
-{#fun JSObjectMakeDate as ^ {id `JSContextRef', id `CULong', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
+{#fun JSObjectMakeDate as ^ {id `JSContextRef', fromIntegral `CSize', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
 
-{#fun JSObjectMakeError as ^ {id `JSContextRef', id `CULong', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
+{#fun JSObjectMakeError as ^ {id `JSContextRef', fromIntegral `CSize', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
 
-{#fun JSObjectMakeRegExp as ^ {id `JSContextRef', id `CULong', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
+{#fun JSObjectMakeRegExp as ^ {id `JSContextRef', fromIntegral `CSize', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
 
 
 {#fun JSObjectMakeFunction as ^ {id `JSContextRef', id `JSStringRef', id `CUInt', id `JSStringRefRef', id `JSStringRef', id `JSStringRef', fromIntegral `Int', id `JSValueRefRef'} -> `JSObjectRef' id #}
@@ -252,9 +253,9 @@ class_set_convertToType t f = {#set JSClassDefinition -> convertToType #} t f
 
 {#fun JSObjectIsFunction as ^ {id `JSContextRef', id `JSObjectRef'} -> `Bool' getBool #}
 
-{#fun JSObjectCallAsFunction as ^ {id `JSContextRef', id `JSObjectRef', id `JSObjectRef', id `CULong', id `JSValueRefRef', id `JSValueRefRef'} -> `JSValueRef' id #}
+{#fun JSObjectCallAsFunction as ^ {id `JSContextRef', id `JSObjectRef', id `JSObjectRef', fromIntegral `CSize', id `JSValueRefRef', id `JSValueRefRef'} -> `JSValueRef' id #}
 
-{#fun JSObjectCallAsConstructor as ^ {id `JSContextRef', id `JSObjectRef',id `CULong', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
+{#fun JSObjectCallAsConstructor as ^ {id `JSContextRef', id `JSObjectRef', fromIntegral `CSize', id `JSValueRefRef', id `JSValueRefRef'} -> `JSObjectRef' id #}
  
 {#fun JSObjectCopyPropertyNames as ^ {id `JSContextRef', id `JSObjectRef'} -> `JSPropertyNameArrayRef' id #}
 
@@ -262,9 +263,9 @@ class_set_convertToType t f = {#set JSClassDefinition -> convertToType #} t f
 
 {#fun JSPropertyNameArrayRelease as ^ {id `JSPropertyNameArrayRef'} -> `()' #}
 
-{#fun JSPropertyNameArrayGetCount as ^ {id `JSPropertyNameArrayRef'} -> `CULong' id #}
+{#fun JSPropertyNameArrayGetCount as ^ {id `JSPropertyNameArrayRef'} -> `CSize' fromIntegral #}
 
-{#fun JSPropertyNameArrayGetNameAtIndex as ^ {id `JSPropertyNameArrayRef', id `CULong'} -> `JSStringRef' id #}
+{#fun JSPropertyNameArrayGetNameAtIndex as ^ {id `JSPropertyNameArrayRef', fromIntegral `CSize'} -> `JSStringRef' id #}
 
 {#fun JSPropertyNameAccumulatorAddName as ^ {id `JSPropertyNameAccumulatorRef', id `JSStringRef'} -> `()' #}
 
