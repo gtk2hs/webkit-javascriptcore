@@ -22,6 +22,9 @@
 /* to avoid stdbool.h error in JavaScriptCore/JSBase.h*/
 #define _Bool unsigned char // unsigned short // previously, int
 
+#define CALLBACK
+#define WINAPI
+
 /* include webkit headers*/
 #include <webkit/webkit.h>
 #include <webkit/webkitdom.h>

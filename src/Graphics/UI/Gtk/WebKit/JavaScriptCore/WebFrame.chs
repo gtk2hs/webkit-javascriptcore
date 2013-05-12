@@ -2,7 +2,11 @@
 
 module Graphics.UI.Gtk.WebKit.JavaScriptCore.WebFrame where
 
+#if __GLASGOW_HASKELL__ >= 704
 import Foreign.ForeignPtr.Unsafe
+#else
+import Foreign.ForeignPtr
+#endif
 import Foreign.Ptr 
 import Foreign.C.Types 
 
