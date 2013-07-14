@@ -10,9 +10,6 @@ import Foreign.C.Types
 
 {#import Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase #}
 
-#include <JavaScriptCore/JSBase.h>
-#include <JavaScriptCore/JSContextRef.h>
-
 -- {#pointer JSGlobalContextRef as JSGlobalContextRef -> OpaqueJSContext #}
 
 {#fun JSContextGroupCreate as ^ {} -> `JSContextGroupRef' id #}

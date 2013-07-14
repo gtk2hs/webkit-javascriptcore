@@ -1,7 +1,7 @@
 Name:		webkit-javascriptcore
 Version:	0.0.0.999
 Synopsis:       JavaScriptCore FFI from webkitgtk
-Description: 	FFI for JavaScriptCore module from webkitgtk 
+Description: 	FFI for JavaScriptCore module from webkitgtk
 License: 	BSD3
 License-file:	LICENSE
 Author:		Ian-Woo Kim
@@ -9,7 +9,6 @@ Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
 Build-Type:     Custom
 Cabal-Version:  >= 1.8
 Extra-Source-Files: hsjscore.h
-                    include/*.chs.h
                     SetupWrapper.hs SetupMain.hs Gtk2HsSetup.hs
                     marshal.list
 		    hierarchy.list
@@ -21,31 +20,26 @@ x-Types-Forward:    *Graphics.UI.GtkInternals
 x-Types-Destructor: objectUnrefFromMainloop
 x-Types-Hierarchy:  hierarchy.list
 
-flag gtk3
-    Description:  Use GTK3 rather than GTK2
-    Default: True
-
 Library
         hs-source-dirs: src
-        build-depends:  base >= 4 && < 5, 
-                        glib, 
-                        webkit >= 0.12.5 
+        build-depends:  base >= 4 && < 5,
+                        glib
 						
         build-tools:    gtk2hsC2hs >= 0.13.5,
                         gtk2hsHookGenerator, gtk2hsTypeGen
 						
         exposed-modules:
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase
-                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSContextRef 
+                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSContextRef
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSStringRef
-                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSValueRef 
+                   Graphics.UI.Gtk.WebKit.JavaScriptCore.JSValueRef
                    --
-                   -- Graphics.UI.Gtk.WebKit.JavaScriptCore.Types  
+                   -- Graphics.UI.Gtk.WebKit.JavaScriptCore.Types
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.WebFrame
         other-modules:
 
-		  
+		
         extensions:     ForeignFunctionInterface
 
         x-Signals-File:  src/Graphics/UI/Gtk/WebKit/JavaScriptCore/Signals.chs
@@ -54,15 +48,10 @@ Library
         x-Signals-Import: Graphics.UI.GtkInternals
 		
         include-dirs: .
-                      include 
+                      include
                       -- /usr/include/webkitgtk-1.0
                       -- /usr/include/glib-2.0
                       -- /usr/lib/x86_64-linux-gnu/glib-2.0/include
         x-c2hs-Header:  hsjscore.h
-        if flag(gtk3)
-          pkgconfig-depends: webkitgtk-3.0 >=1.1.15
-          build-depends:     gtk >=3.12.4.1 && <3.13
-        else
-          pkgconfig-depends: webkit-1.0 >=1.1.15
-          build-depends:     gtk >=0.12.4.1 && <0.13
-        x-Types-Hierarchy:  hierarchy.list
+        pkgconfig-depends: webkit-1.0 >=1.1.15
+        build-depends:     gtk >=0.12.4.1 && <0.13, webkit >= 0.12.5

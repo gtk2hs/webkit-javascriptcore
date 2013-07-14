@@ -8,8 +8,6 @@ import Foreign.C.Types
 
 {#import Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase #}
 
-#include <JavaScriptCore/JSValueRef.h>
-
 {#enum JSType {underscoreToCase} deriving (Show,Eq) #}
 
 toEnumFromIntegral :: (Enum a, Integral i) => i -> a  

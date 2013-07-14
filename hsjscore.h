@@ -27,5 +27,15 @@
 
 /* include webkit headers*/
 #include <webkit/webkit.h>
-#include <webkit/webkitdom.h>
+#include <JavaScriptCore/JSBase.h>
+#include <JavaScriptCore/JSContextRef.h>
+#include <JavaScriptCore/JSObjectRef.h>
+#include <JavaScriptCore/JSStringRef.h>
+#include <JavaScriptCore/JSValueRef.h>
+
+typedef JSStaticValue* JSStaticValueRef;
+
+typedef JSStaticFunction* JSStaticFunctionRef; 
+
+typedef JSClassDefinition* JSClassDefinitionRef; 
 #endif

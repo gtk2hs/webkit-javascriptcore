@@ -7,8 +7,6 @@ import Foreign.C.Types
 import Debug.Trace
 
 -- #include <stdbool.h>
-#include <JavaScriptCore/JSBase.h>
-#include <JavaScriptCore/JSContextRef.h>
 
 -- | conversion from CInt to Bool 
 --   strangely, n often becomes -256 for False

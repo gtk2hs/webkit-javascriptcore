@@ -10,9 +10,6 @@ import Data.Word (Word)
 
 {# import Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase #}
 
-#include <JavaScriptCore/JSObjectRef.h>
-#include "JSObjectRef.chs.h"
-
 -- {#pointer *JSValueRef as Ptr JSValueRef #}
 
 type JSPropertyAttributes = {#type JSPropertyAttributes #}

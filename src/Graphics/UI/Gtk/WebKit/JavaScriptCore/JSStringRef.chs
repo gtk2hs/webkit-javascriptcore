@@ -9,8 +9,6 @@ import Foreign.C.Types
 {#import Graphics.UI.Gtk.WebKit.JavaScriptCore.JSBase #}
 {#import Graphics.UI.Gtk.WebKit.JavaScriptCore.JSValueRef #}
 
-#include <JavaScriptCore/JSStringRef.h>
-
 type JSChar = {#type JSChar #}
 {#pointer *JSChar as JSCharRef -> JSChar #}
 
