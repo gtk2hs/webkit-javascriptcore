@@ -12,6 +12,8 @@ import Data.Word (Word)
 
 -- {#pointer *JSValueRef as Ptr JSValueRef #}
 
+type JSCSize = {#type size_t #}
+
 type JSPropertyAttributes = {#type JSPropertyAttributes #}
 
 type JSClassAttributes = {#type JSClassAttributes #}
@@ -30,7 +32,24 @@ type JSObjectDeletePropertyCallback = {#type JSObjectDeletePropertyCallback #}
 
 type JSObjectGetPropertyNamesCallback = {#type JSObjectGetPropertyNamesCallback #}
 
+type JSObjectCallAsFunctionCallback' =
+       JSContextRef
+    -> JSObjectRef
+    -> JSObjectRef
+    -> JSCSize
+    -> JSValueRefRef
+    -> JSValueRefRef
+    -> IO JSValueRef
+
 type JSObjectCallAsFunctionCallback = {#type JSObjectCallAsFunctionCallback #}
+
+type JSObjectCallAsConstructorCallback' =
+       JSContextRef
+    -> JSObjectRef
+    -> JSCSize
+    -> JSValueRefRef
+    -> JSValueRefRef
+    -> IO JSValueRef
 
 type JSObjectCallAsConstructorCallback = {#type JSObjectCallAsConstructorCallback #}
 
