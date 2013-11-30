@@ -58,4 +58,4 @@ Library
                       -- /usr/lib/x86_64-linux-gnu/glib-2.0/include
         x-c2hs-Header:  hsjscore.h
         pkgconfig-depends: webkitgtk-3.0 >=1.1.15
-        build-depends:     gtk3 >=0.12.5.0 && <0.13, webkitgtk3 >= 0.12.5.0
+        build-depends:     gtk3 >=0.12.5.0 && <0.13, webkitgtk3 >= 0.12.5
