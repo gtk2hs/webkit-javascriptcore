@@ -52,10 +52,6 @@ Library
         x-Signals-Import: Graphics.UI.GtkInternals
 		
         include-dirs: .
-                      include
-                      -- /usr/include/webkitgtk-1.0
-                      -- /usr/include/glib-2.0
-                      -- /usr/lib/x86_64-linux-gnu/glib-2.0/include
         x-c2hs-Header:  hsjscore.h
         pkgconfig-depends: webkitgtk-3.0 >=1.1.15
         build-depends:     gtk3 >=0.13.0.0 && <0.14, webkitgtk3 >=0.13.0.0 && <0.14

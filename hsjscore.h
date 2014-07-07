@@ -17,6 +17,9 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#ifdef __BLOCKS__
+#undef __BLOCKS__
+#endif
 #ifndef HS_WEBKITJAVASCRIPTCORE_H
 #define HS_WEBKITJAVASCRIPTCORE_H
 /* to avoid stdbool.h error in JavaScriptCore/JSBase.h*/
@@ -35,7 +38,7 @@
 
 typedef JSStaticValue* JSStaticValueRef;
 
-typedef JSStaticFunction* JSStaticFunctionRef; 
+typedef JSStaticFunction* JSStaticFunctionRef;
 
-typedef JSClassDefinition* JSClassDefinitionRef; 
+typedef JSClassDefinition* JSClassDefinitionRef;
 #endif
