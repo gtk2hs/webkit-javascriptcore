@@ -18,17 +18,10 @@ before_install:
     else
       sudo apt-get install happy alex
     fi
-  - git clone https://github.com/gtk2hs/gtk2hs.git
-  - git clone https://github.com/gtk2hs/webkit.git
 
 install:
   - cabal install Cabal
-  - cd gtk2hs
-  - ./install-both.sh
-  - cd ..
-  - cd webkit
-  - ./install-both.sh
-  - cd ..
+  - cabal install gtk2hs-buildtools
 
 script:
   - ./install-both.sh
