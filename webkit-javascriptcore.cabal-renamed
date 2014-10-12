@@ -1,5 +1,5 @@
 Name:		webkit-javascriptcore
-Version:	0.13.0.0
+Version:	0.13.0.1
 Synopsis:       JavaScriptCore FFI from webkitgtk
 Description: 	FFI for JavaScriptCore module from webkitgtk
 License: 	BSD3
@@ -44,7 +44,8 @@ Library
         other-modules:
 
 		
-        extensions:     ForeignFunctionInterface
+        default-language:   Haskell98
+        default-extensions: ForeignFunctionInterface
 
         x-Signals-File:  src/Graphics/UI/Gtk/WebKit/JavaScriptCore/Signals.chs
         x-Signals-Modname: src/Graphics.UI.Gtk.WebKit.JavaScriptCore.Signals
