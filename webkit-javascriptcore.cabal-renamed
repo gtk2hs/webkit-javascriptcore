@@ -1,5 +1,5 @@
 Name:		webkit-javascriptcore
-Version:	0.13.0.1
+Version:	0.13.0.2
 Synopsis:       JavaScriptCore FFI from webkitgtk
 Description: 	FFI for JavaScriptCore module from webkitgtk
 License: 	BSD3
@@ -53,6 +53,7 @@ Library
         x-Signals-Import: Graphics.UI.GtkInternals
 		
         include-dirs: .
+        cpp-options: -DDISABLE_DEPRECATED -U__BLOCKS__ -D__attribute__(A)=
         x-c2hs-Header:  hsjscore.h
         pkgconfig-depends: webkit-1.0 >=1.1.15
         build-depends:     gtk >=0.13.0.0 && <0.14, webkit >=0.13.0.0 && <0.14
