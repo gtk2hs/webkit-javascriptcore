@@ -56,4 +56,4 @@ Library
         cpp-options: -DDISABLE_DEPRECATED -U__BLOCKS__ -D__attribute__(A)=
         x-c2hs-Header:  hsjscore.h
         pkgconfig-depends: webkit-1.0 >=1.1.15
-        build-depends:     gtk >=0.13.0.0 && <0.14, webkit >=0.13.0.0 && <0.14
+        build-depends:     gtk >=0.13.0.0 && <0.15, webkit >=0.13.0.0 && <0.15
