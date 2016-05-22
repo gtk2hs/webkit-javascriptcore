@@ -7,11 +7,10 @@ License-file:	LICENSE
 Author:		Ian-Woo Kim
 Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
 Build-Type:     Custom
-Cabal-Version:  >= 1.18
+Cabal-Version:  >= 1.24
 Extra-Source-Files: hsjscore.h
-                    SetupWrapper.hs SetupMain.hs Gtk2HsSetup.hs
                     marshal.list
-		    hierarchy.list
+		            hierarchy.list
 
 x-Types-File:       src/Graphics/UI/Gtk/WebKit/JavaScriptCore/Types.chs
 x-Types-Tag:        webkit webkit-dom
@@ -23,6 +22,11 @@ x-Types-Hierarchy:  hierarchy.list
 Source-Repository head
   type:         git
   location:     https://github.com/gtk2hs/webkit-javascriptcore
+
+custom-setup
+  setup-depends: base >= 4.6,
+                 Cabal >= 1.24 && < 1.25,
+                 gtk2hs-buildtools >= 0.13.1.0 && < 0.14
 
 Library
         hs-source-dirs: src
