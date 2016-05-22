@@ -30,8 +30,7 @@ custom-setup
 
 Library
         hs-source-dirs: src
-        build-depends:  base >= 4 && < 5,
-                        glib >=0.13.0.0 && <0.14
+        build-depends:  base >= 4 && < 5
 						
         build-tools:    gtk2hsC2hs >= 0.13.11,
                         gtk2hsHookGenerator, gtk2hsTypeGen
@@ -42,9 +41,6 @@ Library
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSObjectRef
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSStringRef
                    Graphics.UI.Gtk.WebKit.JavaScriptCore.JSValueRef
-                   --
-                   -- Graphics.UI.Gtk.WebKit.JavaScriptCore.Types
-                   Graphics.UI.Gtk.WebKit.JavaScriptCore.WebFrame
         other-modules:
 
 		
@@ -60,4 +56,3 @@ Library
         cpp-options: -DDISABLE_DEPRECATED -U__BLOCKS__ -D__attribute__(A)=
         x-c2hs-Header:  hsjscore.h
         pkgconfig-depends: webkit-1.0 >=1.1.15
-        build-depends:     gtk >=0.13.0.0 && <0.15, webkit >=0.13.0.0 && <0.15
