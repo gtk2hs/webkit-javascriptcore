@@ -8,6 +8,7 @@ if [[ -d .cabal && -d .ghc ]]; then
 fi
 
 cabal update
+cabal install gtk2hs-buildtools
 
 cabal new-build
 
