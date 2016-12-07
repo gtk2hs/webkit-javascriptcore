@@ -28,8 +28,6 @@
 #define CALLBACK
 #define WINAPI
 
-/* include webkit headers*/
-#include <webkit/webkit.h>
 #include <JavaScriptCore/JSBase.h>
 #include <JavaScriptCore/JSContextRef.h>
 #include <JavaScriptCore/JSObjectRef.h>
