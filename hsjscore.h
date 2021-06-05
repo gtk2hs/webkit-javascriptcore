@@ -17,11 +17,21 @@
  * Boston, MA 02110-1301, USA.
  */
 
+#ifndef HS_WEBKITJAVASCRIPTCORE_H
+#define HS_WEBKITJAVASCRIPTCORE_H
+
 #ifdef __BLOCKS__
 #undef __BLOCKS__
 #endif
-#ifndef HS_WEBKITJAVASCRIPTCORE_H
-#define HS_WEBKITJAVASCRIPTCORE_H
+
+#ifdef __clang__
+#undef __clang__
+#endif
+
+#ifndef JSC_API_AVAILABLE
+#define JSC_API_AVAILABLE(...)
+#endif
+
 /* to avoid stdbool.h error in JavaScriptCore/JSBase.h*/
 #define _Bool unsigned char // unsigned short // previously, int
 
