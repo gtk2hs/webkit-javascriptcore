@@ -28,6 +28,27 @@
 #undef __clang__
 #endif
 
+#ifndef __has_builtin
+#undef __has_builtin
+#endif
+#define __has_builtin(x) 0
+#ifndef __has_include
+#undef __has_include
+#endif
+#define __has_include(x) 0
+#ifndef __has_feature
+#undef __has_feature
+#endif
+#define __has_feature(x) 0
+#ifndef __has_attribute
+#undef __has_attribute
+#endif
+#define __has_attribute(x) 0
+#ifndef __has_extension
+#undef __has_extension
+#endif
+#define __has_extension(x) 0
+
 #ifndef JSC_API_AVAILABLE
 #define JSC_API_AVAILABLE(...)
 #endif
