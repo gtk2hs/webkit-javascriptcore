@@ -7,7 +7,7 @@ License-file:   LICENSE
 Author:         Ian-Woo Kim
 Maintainer:     Ian-Woo Kim <ianwookim@gmail.com>
 Build-Type:     Custom
-Cabal-Version:  >= 1.24
+Cabal-Version:  1.24
 Extra-Source-Files: hsjscore.h
                     marshal.list
                     hierarchy.list
@@ -25,7 +25,7 @@ Source-Repository head
 
 custom-setup
   setup-depends: base >= 4.6,
-                 Cabal >= 1.24 && < 3.3,
+                 Cabal >= 1.24 && < 3.8,
                  gtk2hs-buildtools >= 0.13.5.4 && < 0.14
 
 Library
