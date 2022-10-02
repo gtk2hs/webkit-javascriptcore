@@ -1,3 +1,4 @@
+cabal-version:  1.24
 Name:           webkit2gtk3-javascriptcore
 Version:        0.14.4.4
 Synopsis:       JavaScriptCore FFI from webkitgtk
@@ -7,7 +8,6 @@ License-file:   LICENSE
 Author:         Ian-Woo Kim
 Maintainer:     Ian-Woo Kim <ianwookim@gmail.com>
 Build-Type:     Custom
-Cabal-Version:  >= 1.24
 Extra-Source-Files: hsjscore.h
                     marshal.list
                     hierarchy.list
