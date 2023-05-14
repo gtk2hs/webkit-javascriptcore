@@ -1,3 +1,3 @@
-{ compiler-nix-name = "ghc924";
+{ compiler-nix-name = "ghc961";
   shell.tools.cabal = {};
 }

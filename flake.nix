@@ -23,15 +23,15 @@
               };
           })
           (import ./nix/overlays/gtk-debug.nix)
-          (final: prev: {
-            webkitgtk = prev.webkitgtk.overrideAttrs (attrs: rec {
-              version = "2.32.4";
-              src = final.fetchurl {
-                url = "https://webkitgtk.org/releases/${attrs.pname}-${version}.tar.xz";
-                sha256 = "1zfkfyhm4i7901pp32wcwcfxax69qgq5k44x0glwaywdg4zjvkh0";
-              };
-            });
-          })
+#          (final: prev: {
+#            webkitgtk = prev.webkitgtk.overrideAttrs (attrs: rec {
+#              version = "2.32.4";
+#              src = final.fetchurl {
+#                url = "https://webkitgtk.org/releases/${attrs.pname}-${version}.tar.xz";
+#                sha256 = "1zfkfyhm4i7901pp32wcwcfxax69qgq5k44x0glwaywdg4zjvkh0";
+#              };
+#            });
+#          })
         ];
         pkgs = import nixpkgs { inherit system overlays; inherit (haskellNix) config; };
         flake = pkgs.hixProject.flake {};
