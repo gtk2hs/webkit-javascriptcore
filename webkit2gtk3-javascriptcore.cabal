@@ -8,6 +8,7 @@ License-file:   LICENSE
 Author:         Ian-Woo Kim
 Maintainer:     Ian-Woo Kim <ianwookim@gmail.com>
 Build-Type:     Custom
+Tested-With:    GHC == 9.10.1, GHC == 9.8.2, GHC == 9.6.6, GHC == 9.4.8, GHC == 9.2.8, GHC==9.0.2, GHC==8.10.7, GHC==8.8.4, GHC==8.6.5, GHC==8.4.4, GHC==8.2.2, GHC==8.0.2
 Extra-Source-Files: hsjscore.h
                     marshal.list
                     hierarchy.list
@@ -25,7 +26,7 @@ Source-Repository head
 
 custom-setup
   setup-depends: base >= 4.6 && <5,
-                 Cabal >= 1.24 && < 3.11,
+                 Cabal >= 1.24 && < 3.13,
                  gtk2hs-buildtools >= 0.13.5.4 && < 0.14
 
 Library

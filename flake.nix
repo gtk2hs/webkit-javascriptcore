@@ -3,7 +3,9 @@
   inputs.haskellNix.url = "github:input-output-hk/haskell.nix";
   inputs.nixpkgs.follows = "haskellNix/nixpkgs-unstable";
   inputs.flake-utils.url = "github:numtide/flake-utils";
-  outputs = { self, nixpkgs, flake-utils, haskellNix }:
+  inputs.haskell-ci.url = "github:haskell-CI/haskell-ci";
+  inputs.haskell-ci.flake = false;
+  outputs = inputs@{ self, nixpkgs, flake-utils, haskellNix, haskell-ci }:
     let
       supportedSystems = [
         "x86_64-linux"
@@ -15,11 +17,13 @@
       flake-utils.lib.eachSystem supportedSystems (system:
       let
         overlays = [ haskellNix.overlay
-          (final: prev: {
+          (final: _prev: {
+            inherit inputs;
             hixProject =
               final.haskell-nix.hix.project {
                 src = ./.;
-                evalSystem = "x86_64-darwin";
+                # uncomment with your current system for `nix flake show` to work:
+                #evalSystem = "x86_64-darwin";
               };
           })
           (import ./nix/overlays/gtk-debug.nix)
