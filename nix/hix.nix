@@ -1,8 +1,9 @@
-{pkgs, ...}: { compiler-nix-name = "ghc9101";
-  flake.variants.ghc8107.compiler-nix-name = pkgs.lib.mkForce "ghc8107";
-  flake.variants.ghc966.compiler-nix-name = pkgs.lib.mkForce "ghc966";
-  flake.variants.ghc982.compiler-nix-name = pkgs.lib.mkForce "ghc982";
-  shell.tools.cabal = {};
-  shell.tools.haskell-ci.src = pkgs.inputs.haskell-ci;
+{pkgs, ...}: { compiler-nix-name = "ghc912";
+  flake.variants.ghc810.compiler-nix-name = pkgs.lib.mkForce "ghc810";
+  flake.variants.ghc96.compiler-nix-name = pkgs.lib.mkForce "ghc96";
+  flake.variants.ghc98.compiler-nix-name = pkgs.lib.mkForce "ghc98";
+  flake.variants.ghc910.compiler-nix-name = pkgs.lib.mkForce "ghc910";
+  shell.tools.cabal = { compiler-nix-name = "ghc910"; };
+  shell.tools.haskell-ci = { compiler-nix-name = "ghc910"; src = pkgs.inputs.haskell-ci; };
   shell.withHoogle = false;
 }
